@@ -44,9 +44,10 @@ namespace Game1
             console.writeline("toi luot player{0}",getChar());
             pos = Int.parse( console.readline()); //neu bien sai kieu du lieu se thoat ra
             
-            
+            CheckPosition();
+            CheckWin
 
-            console.clean();
+            console.clear();
             Console.WriteLine(true);
         }
         private static char getCharPlayer(char c)
@@ -57,10 +58,22 @@ namespace Game1
             }
             return c;
         }
-         private static char getChar()
-         {
-          return player % 2 == 0 ? playerChar1 : playerChar2;
-         }
+        private static char getChar()
+        {
+            return player % 2 == 0 ? playerChar1 : playerChar2;
+        }
+        private static void CheckPosition()
+        {
+            char c = board[pos];
+            if( c == playerChar1 || playerChar2)
+            {
+                ( Console.WriteLine("error 404");
+                 return;
+            }
+            board[pos] = getChar();
+            player++;
+            
+        }
         
     }
 }
